@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            color: white;
+            text-align: center;
+        }
+        .rectangle {
+            height: 500px;
+            width: 500px;
+            background-color: #555;
+            align: center;
+            margin-top: 150px;
+            margin-left: 500px;
+            border-radius: 5%;
+        }
+
+        input[type=text] {
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: none;
+            background-color: red;
+            color: white;
+        }
+        input[type=password] {
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: none;
+            background-color: red;
+            color: white;
+        }
+
+        /* Button style */
+        .button {
+            display: inline-block;
+            border-radius: 0px;
+            background-color: #f4511e;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 28px;
+            padding: 20px;
+            width: 100%;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 0px;
+        }
+
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .button:hover span {
+            padding-right: 25px;
+        }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+        /* end of button style */
+
+    </style>
+</head>
+<body>
+
+
+<div class="rectangle">
+
+    <div th:if="${error}">
+    <h3 style="padding-top: 100px; padding-right: 100px; padding-left: 100px;" th:text="${error}"></h3>
+    </div>
+
+<div  th:unless="${user}">
+    <h4 style="padding-top: 50px; padding-right: 100px; padding-left: 100px;">Please enter your username and password</h4>
+<form action="login" method="post">
+    <input type="text" id="username" name="username" placeholder="Username"><br>
+    <input type="password" id="password" name="password" placeholder="Password"><br>
+    <button class="button" style="width:100px; padding: 3px; font-size: 18px; height:45px; margin-top: 25px;">Login</button>
+</form>
+</div>
+
+    <div th:if="${user}">
+        <h4 style="padding-top: 100px; padding-right: 100px; padding-left: 100px;" th:text="'Welcome,' + ${user} + '. You have successfully signed in.'"></h4>
+        <button onclick="myFunction()" class="button" style="width:300px; padding: 3px; font-size: 18px; height:45px; margin-top: 25px;">Lets go back to main page</button>
+
+    </div>
+
+</div>
+
+<script>
+    function myFunction() {
+        window.location.href = "http://localhost:8080/";
+    }
+</script>
+
+</body>
+</html>

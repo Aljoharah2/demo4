@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            color: white;
+            text-align: center;
+        }
+        .rectangle {
+            height: 400px;
+            width: 500px;
+            background-color: #555;
+            align: center;
+            margin-top: 150px;
+            margin-left: 500px;
+            border-radius: 5%;
+        }
+        /* Button style */
+        .button {
+            display: inline-block;
+            border-radius: 0px;
+            background-color: #f4511e;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 28px;
+            padding: 20px;
+            width: 100%;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 0px;
+        }
+
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .button:hover span {
+            padding-right: 25px;
+        }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+        /* end of button style */
+    </style>
+</head>
+<body>
+
+<div class="rectangle">
+
+<h1 style="padding-top: 100px; padding-right: 100px; padding-left: 100px;">Error</h1>
+
+    <button onclick="myFunction()" class="button" style="width:300px; padding: 3px; font-size: 18px; height:45px; margin-top: 25px;">Try logging in again</button><br><br>
+
+    <a href="http://localhost:8080/" style="color:white;">Go back home</a>
+
+</div>
+
+</body>
+</html>
+
+<script>
+    function myFunction() {
+        window.location.href = "http://localhost:8080/login";
+    }
+</script>

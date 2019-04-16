@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Latest</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            color: white;
+            text-align: center;
+        }
+        table {
+            width: 50%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {background-color:red;
+        }
+        /* Button style */
+        .button {
+            display: inline-block;
+            border-radius: 0px;
+            background-color: #f4511e;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 28px;
+            padding: 20px;
+            width: 100%;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 0px;
+        }
+
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .button:hover span {
+            padding-right: 25px;
+        }
+
+        button:hover {
+            background-color:black;
+        }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+        /* end of button style */
+    </style>
+</head>
+<body>
+<h1>Latest Movie:</h1>
+
+<table th:if="${latestM}">
+
+    <tr>
+        <th>Poster:</th>
+        <td th:text="${latestM.getPoster_path()}"><img th:src="@{'https://image.tmdb.org/t/p/w154/'+${latestM.getPoster_path()}}"></td>
+    </tr>
+
+    <tr>
+        <th>Title:</th>
+        <td th:text="${latestM.getTitle()}"></td>
+    </tr>
+
+    <tr>
+        <th>Overview:</th>
+        <td th:text="${latestM.getOverview()}"></td>
+    </tr>
+
+    <tr>
+        <th>Release date:</th>
+        <td th:text="${latestM.getRelease_date()}"></td>
+    </tr>
+
+    <tr>
+        <th>Status:</th>
+        <td th:text="${latestM.getStatus()}"></td>
+    </tr>
+
+    <tr>
+        <th>Add/remove from favorite</th>
+        <td>
+            <form action="favYes" method="post">
+
+                <input type="radio" name="fav" value="true" checked>Mark
+                <input type="radio" name="fav" value="false">Unmark
+                <button class="button" style="width:30px; padding: 3px; font-size: 15px; height:30px;">Go</button>
+
+            </form>
+
+        </td>
+    </tr>
+
+</table>
+
+
+
+</body>
+</html>

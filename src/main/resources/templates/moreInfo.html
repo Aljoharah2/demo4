@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Detailed information</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            color: white;
+            text-align: center;
+        }
+
+        table {
+            width:50%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr{
+            width:100%;
+
+        }
+        .inLine{
+            display: inline;
+        }
+
+    </style>
+</head>
+<body>
+
+<div th:if="${info}" >
+
+        <h4>More information:</h4>
+
+        <table>
+            <tr>
+                <td>Adult content?</td>
+                <td th:text="${info.getAdult()}"></td>
+            </tr>
+            <tr>
+                <th>Budget:</th>
+                <td th:text="${info.getBudget()}"></td>
+            </tr>
+            <tr>
+                <th>Genres:</th>
+                <td>
+                    <div th:each="genre : ${genres}">
+                    <p style="color:red;">- Genre ID:</p><p th:text="${genre.getId()}"></p>
+                    <p style="color:red;">- Genre name:</p><p th:text="${genre.getName()}"></p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>Homepage:</th>
+                <td th:text="${info.getHomepage()}"></td>
+            </tr>
+            <tr>
+                <th>IMDB ID:</th>
+                <td th:text="${info.getImdb_id()}"></td>
+            </tr>
+            <tr>
+                <th>Original language:</th>
+                <td th:text="${info.getOriginal_language()}"></td>
+            </tr>
+            <tr>
+                <th>Original title:</th>
+                <td th:text="${info.getOriginal_title()}"></td>
+            </tr>
+            <tr>
+                <th>Popularity:</th>
+                <td th:text="${info.getPopularity()}"></td>
+            </tr>
+            <tr>
+                <th>Production companies:</th>
+                <td>
+                    <div th:each="company : ${production_companies}">
+                        <p style="color:red;">- Company name:</p><p th:text="${company.getName()}"></p>
+                        <p style="color:red;">- Company ID:</p><p th:text="${company.getId()}"></p>
+                        <p style="color:red;">- Company origin country:</p><p th:text="${company.getOrigin_country()}"></p>
+                </div>
+                </td>
+
+            </tr>
+            <tr>
+                <th>Production countries:</th>
+                <td>
+                    <div th:each="country : ${production_countries}">
+                    <p style="color:red;">- Country iso_3166_1:</p><p th:text="${country.getIso_3166_1()}"></p>
+                    <p style="color:red;">- Country name:</p><p th:text="${country.getName()}"></p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>Revenue:</th>
+                <td th:text="${info.getRevenue()}"></td>
+            </tr>
+            <tr>
+                <th>Runtime</th>
+                <td th:text="${info.getRuntime()}"></td>
+            </tr>
+            <tr>
+                <th>Spoken languages:</th>
+                <td>
+                    <div th:each="lang : ${spoken_languages}">
+                    <p style="color:red;">- Language iso_639_1:</p><p th:text="${lang.getIso_639_1()}"></p>
+                    <p style="color:red;">- Language name:</p><p th:text="${lang.getName()}"></p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>Vote average:</th>
+                <td th:text="${info.getVote_average()}"></td>
+            </tr>
+        </table>
+
+
+</div>
+
+</body>
+</html>

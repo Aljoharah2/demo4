@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            color: white;
+            text-align: center;
+        }
+        table {
+            width: 50%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {background-color:red;
+        }
+
+        /* Button style */
+        .button {
+            display: inline-block;
+            border-radius: 0px;
+            background-color: #f4511e;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 28px;
+            padding: 20px;
+            width: 100%;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 0px;
+        }
+
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .button:hover span {
+            padding-right: 25px;
+        }
+
+        button:hover {
+            background-color:black;
+        }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+        /* end of button style */
+
+    </style>
+
+</head>
+<body>
+
+
+<h1>Search results</h1>
+
+<div th:if="${results}">
+    <div th:each="result : ${results}">
+<table>
+
+    <tr>
+        <th>Poster:</th>
+        <td><img th:src="@{'https://image.tmdb.org/t/p/w154/'+${result.getPoster_path()}}"></td>
+    </tr>
+    <tr>
+        <th>Title:</th>
+        <td th:text="${result.getTitle()}"></td>
+    </tr>
+
+    <tr>
+        <th>Overview:</th>
+        <td th:text="${result.getOverview()}"></td>
+    </tr>
+
+    <tr>
+        <th>Release date:</th>
+        <td th:text="${result.getRelease_date()}"></td>
+    </tr>
+
+    <tr>
+        <th>ID:</th>
+        <td th:text="${result.getId()}"></td>
+    </tr>
+
+    <tr>
+        <th>Add/remove from favorite:</th>
+        <td>
+            <form action="favYes1" method="post">
+
+                <input type="hidden" id="fav" name="fav" th:value="${result.getId()}">
+                <input type="radio" name="fav1" value="true" checked>Mark
+                <input type="radio" name="fav1" value="false">Unmark
+                <button class="button" style="width:30px; padding: 3px; font-size: 15px; height:30px;">Go</button>
+            </form>
+        </td>
+    </tr>
+
+    <tr>
+        <th>More details?</th>
+        <td>
+            <form action="moreInfo" method="get">
+                <input type="hidden" id="moreInfo" name="moreInfo" th:value="${result.getId()}">
+                <button class="button" style="width:80px; padding: 3px; font-size: 15px;">Click here</button>
+            </form>
+
+        </td>
+    </tr>
+
+    <tr>
+
+    </tr>
+
+</table>
+        <br><br><br>
+
+</div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            color: white;
+            text-align: center;
+        }
+        .rectangle {
+            height: 400px;
+            width: 500px;
+            background-color: #555;
+            align: center;
+            margin-top: 150px;
+            margin-left: 500px;
+            border-radius: 5%;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="rectangle">
+
+    <p th:text="${statusMsg}" style="padding:30px; padding-top:120px;"></p>
+
+<h3>We are redirecting you, thanks.</h3>
+
+</div>
+
+</body>
+</html>
+
+<script>
+    window.location.replace("http://localhost:8080/");
+</script>

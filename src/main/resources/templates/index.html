@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8" />
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
+</head>
+<body>
+
+
+    <div class="row">
+        <div class="column side" th:if="${username}" style="padding-left:75%;">
+            <button onclick="location.href = 'http://localhost:8080/logout';" class="button" style="vertical-align:middle"><span>Logout</span></button>
+        </div>
+        <div class="column side" th:unless="${username}" style="padding-right: 75%;">
+            <button onclick="location.href = 'http://localhost:8080/login';" class="button" style="vertical-align:middle"><span>Login</span></button>
+        </div>
+        <div class="column middle" style="padding-right:25%; padding-left:25%;">
+            <h1>The movieDB</h1>
+        </div>
+
+    </div>
+
+
+    <div class="welcome">
+<div th:if="${username}">
+    <h3 th:text="'Welcome '+${username}+'. Happy watching!'"></h3>
+</div>
+    </div>
+
+    <div class="features">
+        <h1>We've got great<span style="color:red;"> features</span> for you!</h1>
+    </div>
+
+
+    <div class="circlesPosition">
+        <div class="circlesInline"><div class="circle"><p style="padding: 63px; font-size:22px;">You can see the <span style="color:red;"> LATEST </span> movie</p></div></div>
+        <div class="circlesInline"><div class="circle"><p style="padding: 50px; font-size:22px;">You can <span style="color:red;"> SEARCH </span> for a prticular movie</p></div></div>
+        <div class="circlesInline"><div class="circle"><p style="padding: 50px; font-size:22px;">You can add/remove a movie from your <span style="color:red;"> FAVORITE </span></p></div></div>
+        <div class="circlesInline"><div class="circle"><p style="padding: 50px; font-size:22px;">You can see <span style="color:red;"> MORE DETAILS </span> about a movie</p></div></div>
+    </div>
+
+
+
+    <div style="margin-bottom: 100px; margin-top: 100px;">
+    <h2>Looking for a particular movie? Let us help you.</h2>
+
+<form action="search" method="get">
+    <input type="text" id="searchInput" name="searchInput">
+    <button class="button" style="width:100px; padding: 3px; font-size: 18px; height:45px;">Search</button>
+</form>
+    </div>
+
+
+    <div class="rectangle2latest">
+    <h2 style="padding: 80px;">Now you can always be updated and watch the <span style="color:red;">LATEST</span> movie available!</h2>
+    </div>
+
+    <button onclick="location.href = 'http://localhost:8080/latest';" class="button" style="vertical-align:middle"><span>See latest movie</span></button>
+
+
+
+</body>
+</html>

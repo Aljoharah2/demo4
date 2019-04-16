@@ -1,0 +1,124 @@
+body {
+    background-color: black;
+    margin: 0;
+    color: white;
+    text-align: center;
+}
+/* Create three unequal columns that floats next to each other */
+.column {
+    float:left;
+}
+
+/* Left and right column */
+.column.side {
+    width: 25%;
+}
+
+/* Middle column */
+.column.middle {
+    width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Button style */
+.button {
+    display: inline-block;
+    border-radius: 0px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 100%;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 0px;
+}
+
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover span {
+    padding-right: 25px;
+}
+
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+/* end of button style */
+
+.rectangle {
+    height: 50px;
+    width: 100%;
+    background-color: #555;
+}
+
+.welcome {
+    text-align: left;
+    margin-left: 100px;
+    margin-top: 100px;
+}
+
+.features {
+    text-align: left;
+    margin-left: 100px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.circle {
+    height: 200px;
+    width: 200px;
+    background-color: #555;
+    border-radius: 50%;
+    margin:25px;
+    text-align: center;
+}
+
+.circlesPosition{
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+}
+
+.circlesInline{
+    display: inline-block;;
+}
+
+.rectangle2latest{
+    padding:0px;
+    height: 200px;
+    width: 100%;
+    background-color: #555;
+}
+
+input[type=text] {
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: red;
+    color: white;
+}
